@@ -58,11 +58,12 @@ The code expects input audio files such as `.wav` or `.mp3` recordings of isolat
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Andrewchook/<repository-name>.git
-cd <repository-name>
+git clone https://github.com/Andrewchook/Compact-Parametric-Additive-Synthesis
+.git
+cd Compact-Parametric-Additive-Synthesis
+
 ```
 
-Replace `<repository-name>` with the actual repository name.
 
 ### 2. Open MATLAB in the repository folder
 
