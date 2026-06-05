@@ -329,8 +329,4 @@ This project is part of a thesis investigation into compact additive resynthesis
 
 ## Author
 
-Andrew Chook
-
-## License
-
-Add a license before public release. If unsure, MIT License is a common choice for open-source research code, but confirm that all included code and datasets are allowed to be shared.
+Andrew Chookaszian
