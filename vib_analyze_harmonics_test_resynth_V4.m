@@ -22,15 +22,15 @@ bassClarinetSample1 = "C:\Users\Andre\OneDrive\Documents\MATLAB\bass clarinet\ba
 
 resynth = "C:\Users\Andre\OneDrive\Documents\MATLAB\note_V15_resynth.wav";
 
-audioPath = violin3;
+audioPath = violinVibrato;
 
 % Run baseline sms analysis
 S_baseline = vib_sms_baseline_V3(audioPath);
 
 % Run current version analysis model
 tic
-S_V27 = vib_analyze_harmonics_analysis_V27(audioPath,plot_spectrogram=true,specWinMs=100,numHarmonics=8);
-S_V30 = vib_analyze_harmonics_analysis_V30(audioPath,plot_spectrogram=true,specWinMs=100,numHarmonics=8);
+S_V27 = vib_analyze_harmonics_analysis_V27(audioPath,plot_spectrogram=true,specWinMs=100,numHarmonics=10);
+% S_V30 = vib_analyze_harmonics_analysis_V30(audioPath,plot_spectrogram=true,specWinMs=100,numHarmonics=8);
 S = S_V27;
 vib_export_params_embedded_V27(S_V27.params, "instrument_params.h", ...
     instrumentName="violin_A4", ...
@@ -39,17 +39,17 @@ vib_export_params_embedded_V27(S_V27.params, "instrument_params.h", ...
 
 analysisTimer = toc
 resynthParams_V27 = S_V27.params;
-resynthParams_V30 = S_V30.params;
+% resynthParams_V30 = S_V30.params;
 
 slashidxs = strfind((audioPath),'\');
 outpath_V27 = "resynth\V27_full_synth_" + audioPath{1}(slashidxs(end)+1:end);
-outpath_V30 = "resynth\V30_full_synth_" + audioPath{1}(slashidxs(end)+1:end);
+% outpath_V30 = "resynth\V30_full_synth_" + audioPath{1}(slashidxs(end)+1:end);
 
 % resynthesize with current model
 tic
 [ySynth_V27, synthData_V27] = vib_analyze_harmonics_resynthesize_V27(resynthParams_V27,playAudio=true,outputPath=outpath_V27);
 pause(numel(synthData_V27.t)/synthData_V27.fs);
-[ySynth_V30, synthData_V30] = vib_analyze_harmonics_resynthesize_V30(resynthParams_V30,playAudio=true,outputPath=outpath_V30);
+% [ySynth_V30, synthData_V30] = vib_analyze_harmonics_resynthesize_V30(resynthParams_V30,playAudio=true,outputPath=outpath_V30);
 resynthTime = toc
 ySynth=ySynth_V27;
 synthData = synthData_V27;

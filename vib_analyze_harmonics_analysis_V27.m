@@ -2275,8 +2275,8 @@ bw = opts.bandwidthF0Frac * f0Hz;
 for k = 1:K
     fc = k * f0Hz;
     fcLP = min(max(bw,5),0.45*fs);
-    plot(T,(fc-fcLP)*ones(size(T)),'w--','LineWidth',1);
-    plot(T,(fc+fcLP)*ones(size(T)),'w--','LineWidth',1);
+    plot(T,(fc-fcLP)*ones(size(T)),'w--','LineWidth',2);
+    plot(T,(fc+fcLP)*ones(size(T)),'w--','LineWidth',2);
     if opts.specOverlayCenters
         plot(T,fc*ones(size(T)),'w-','LineWidth',0.75);
     end
